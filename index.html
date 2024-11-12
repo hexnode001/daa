@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DAA</title>
     <style>
-      body {
-        padding: 5rem;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5rem;
-        justify-content: center;
-        /* align-items: center; */
-      }
+        body {
+            padding: 5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5rem;
+            justify-content: center;
+            /* align-items: center; */
+        }
 
-      button {
-        height: 5rem;
-        padding: 0 3rem;
-      }
+        button {
+            height: 5rem;
+            padding: 0 3rem;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <button onclick="recur()">Recursive Binary Search</button>
     <button onclick="iter()">Iterative Binary Search</button>
     <button onclick="quick()">Quick Sort</button>
@@ -37,55 +39,59 @@
     <button onclick="ts()">Travelling Salesman</button>
 
     <script>
-      document.querySelectorAll("button").forEach((button) => {
-        button.addEventListener("click", function () {
-          clr();
+        document.querySelectorAll("button").forEach((button) => {
+            button.addEventListener("click", function () {
+                clr();
+            });
         });
-      });
-      async function clr() {
-        document.body.style.backgroundColor = "#009900";
-        setTimeout(() => {
-          document.body.style.backgroundColor = "#fff";
-        }, 1000);
-      }
+        async function clr() {
+            document.body.style.backgroundColor = "#009900";
+            setTimeout(() => {
+                document.body.style.backgroundColor = "#fff";
+            }, 1000);
+        }
 
-      function recur() {
-        navigator.clipboard
-          .writeText(`int binarySearch(int arr[], int l, int r, int x) 
-        { 
-        if (r >= l) 
-        { 
-        int mid = l + (r - l)/2; 
-        
-        // If the element is present at the middle itself 
-        if (arr[mid] == x) return mid; 
-        
-        // If element is smaller than mid, then it can only be present 
-        // in left subarray 
-        if (arr[mid] > x) return binarySearch(arr, l, mid-1, x); 
-        
-        // Else the element can only be present in right subarray 
-        return binarySearch(arr, mid+1, r, x); 
-        } 
-        
-        // We reach here when element is not present in array 
-        return -1; 
-        } 
-        
-        int main(void) 
-        { 
-        int arr[] = {2, 3, 4, 10, 40}; 
-        int n = sizeof(arr)/ sizeof(arr[0]); 
-        int x = 10; 
-        int result = binarySearch(arr, 0, n-1, x); 
-        (result == -1)? printf("Element is not present in array") 
-        : printf("Element is present at index %d", result); 
-        return 0; 
-        } `);
-      }
+        function recur() {
+            navigator.clipboard
+                .writeText(`#include <stdio.h>
 
-      function iter() {
-        navigator.clipboard.writeText(`#include<stdio.h>
+int binarySearch(int arr[], int l, int r, int x)
+{
+    if (r >= l)
+    {
+        int mid = l + (r - l) / 2;
+
+        // If the element is present at the middle itself
+        if (arr[mid] == x)
+            return mid;
+
+        // If element is smaller than mid, then it can only be present
+        // in left subarray
+        if (arr[mid] > x)
+            return binarySearch(arr, l, mid - 1, x);
+
+        // Else the element can only be present in right subarray
+        return binarySearch(arr, mid + 1, r, x);
+    }
+
+    // We reach here when element is not present in array
+    return -1;
+}
+
+int main(void)
+{
+    int arr[] = {2, 3, 4, 10, 40};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int x = 10;
+    int result = binarySearch(arr, 0, n - 1, x);
+    (result == -1) ? printf("Element is not present in array")
+                   : printf("Element is present at index %d", result);
+    return 0;
+}`);
+        }
+
+        function iter() {
+            navigator.clipboard.writeText(`#include<stdio.h>
         
         int main()
         {
@@ -126,10 +132,10 @@
         
         return 0;
         }`);
-      }
+        }
 
-      function quick() {
-        navigator.clipboard.writeText(`#include <stdio.h>
+        function quick() {
+            navigator.clipboard.writeText(`#include <stdio.h>
         void quick_sort(int[],int,int);
         int partition(int[],int,int);
         int main()
@@ -192,10 +198,10 @@
             
             return(j);
         }`);
-      }
+        }
 
-      function merge() {
-        navigator.clipboard.writeText(`#include<stdio.h>
+        function merge() {
+            navigator.clipboard.writeText(`#include<stdio.h>
         
         void mergesort(int a[],int i,int j);
         void merge(int a[],int i1,int j1,int i2,int j2);
@@ -258,10 +264,10 @@
             for(i=i1,j=0;i<=j2;i++,j++)
                 a[i]=temp[j];
         }`);
-      }
+        }
 
-      function prim() {
-        navigator.clipboard.writeText(`#include<stdio.h>
+        function prim() {
+            navigator.clipboard.writeText(`#include<stdio.h>
         #include<stdlib.h>
         
         #define infinity 9999
@@ -360,10 +366,10 @@
             
             return(min_cost);
         }`);
-      }
+        }
 
-      function kruskal() {
-        navigator.clipboard.writeText(`#include<stdio.h>
+        function kruskal() {
+            navigator.clipboard.writeText(`#include<stdio.h>
         #define MAX 30
         
         typedef struct edge
@@ -485,10 +491,10 @@
         
             printf("\\n\\nCost of the spanning tree=%d",cost);
         }`);
-      }
+        }
 
-      function allpair() {
-        navigator.clipboard.writeText(`#include<stdio.h> 
+        function allpair() {
+            navigator.clipboard.writeText(`#include<stdio.h> 
         
         // Number of vertices in the graph 
         #define V 4 
@@ -572,10 +578,10 @@
         floydWarshall(graph); 
         return 0; 
         }`);
-      }
+        }
 
-      function onepair() {
-        navigator.clipboard.writeText(`#include<stdio.h>
+        function onepair() {
+            navigator.clipboard.writeText(`#include<stdio.h>
         #include<conio.h>
         #define INFINITY 9999
         #define MAX 10
@@ -667,10 +673,10 @@
                     }while(j!=startnode);
             }
         }`);
-      }
+        }
 
-      function knap() {
-        navigator.clipboard.writeText(`#include<stdio.h>
+        function knap() {
+            navigator.clipboard.writeText(`#include<stdio.h>
         
         int max(int a, int b) { return (a > b)? a : b; }
         
@@ -711,363 +717,375 @@
         printf("%d", knapSack(W, wt, val, n));
         return 0;
         }`);
-      }
-
-      function queen() {
-        navigator.clipboard.writeText(`#include<stdio.h>
-        #include<math.h>
-        
-        int board[20],count;
-        
-        int main()
-        {
-        int n,i,j;
-        void queen(int row,int n);
-        
-        printf(" - N Queens Problem Using Backtracking -");
-        printf("\\n\\nEnter number of Queens:");
-        scanf("%d",&n);
-        queen(1,n);
-        return 0;
-        }
-        
-        //function for printing the solution
-        void print(int n)
-        {
-        int i,j;
-        printf("\\n\\nSolution %d:\\n\\n",++count);
-        
-        for(i=1;i<=n;++i)
-        printf("\\t%d",i);
-        
-        for(i=1;i<=n;++i)
-        {
-        printf("\\n\\n%d",i);
-        for(j=1;j<=n;++j) //for nxn board
-        {
-         if(board[i]==j)
-        printf("\\tQ"); //queen at i,j position
-         else
-        printf("\\t-"); //empty slot
-        }
-        }
-        }
-        
-        /*funtion to check conflicts
-        If no conflict for desired postion returns 1 otherwise returns 0*/
-        int place(int row,int column)
-        {
-        int i;
-        for(i=1;i<=row-1;++i)
-        {
-        //checking column and digonal conflicts
-        if(board[i]==column)
-         return 0;
-        else
-         if(abs(board[i]-column)==abs(i-row))
-        return 0;
-        }
-        
-        return 1; //no conflicts
-        }
-        
-        //function to check for proper positioning of queen
-        void queen(int row,int n)
-        {
-        int column;
-        for(column=1;column<=n;++column)
-        {
-        if(place(row,column))
-        {
-         board[row]=column; //no conflicts so place queen
-         if(row==n) //dead end
-        print(n); //printing the board configuration
-         else //try queen with next position
-        queen(row+1,n);
-        }
-        }
-        }`);
-      }
-
-      function bst() {
-        navigator.clipboard.writeText(`#include<stdio.h>
-        #include<conio.h>
-        #define MAX 10
-
-        void main()
-        {
-
-        char ele[MAX][MAX];
-        int w[MAX][MAX], c[MAX][MAX], r[MAX][MAX], p[MAX], q[MAX];
-        int temp=0, root, min, min1, n;
-        int i,j,k,b; 
-        clrscr();
-        printf("Enter the number of elements:");
-        scanf("%d",&n);
-        printf("\\n");
-        for(i=1; i <= n; i++)
-        {
-        printf("Enter the Element of %d:",i);
-        scanf("%d",&p[i]);
         }
 
-            printf("\\n");
-        for(i=0; i <= n; i++)
+        function queen() {
+            navigator.clipboard.writeText(`#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+int board[20], count;
+
+int main()
+{
+    int n, i, j;
+    void queen(int row, int n);
+
+    printf(" - N Queens Problem Using Backtracking -");
+    printf("\\n\\nEnter number of Queens:");
+    scanf("%d", &n);
+    queen(1, n);
+    return 0;
+}
+
+// function for printing the solution
+void print(int n)
+{
+    int i, j;
+    printf("\\n\\nSolution %d:\\n\\n", ++count);
+
+    for (i = 1; i <= n; ++i)
+        printf("\\t%d", i);
+
+    for (i = 1; i <= n; ++i)
+    {
+        printf("\\n\\n%d", i);
+        for (j = 1; j <= n; ++j) // for nxn board
         {
-        printf("Enter the Probability of %d:",i);
-        scanf("%d",&q[i]);
+            if (board[i] == j)
+                printf("\\tQ"); // queen at i,j position
+            else
+                printf("\\t-"); // empty slot
         }
-        printf("W\\t\\tC\\t\\tR\\n"); 
-        for(i=0; i <= n; i++)
+    }
+}
+
+/*funtion to check conflicts
+If no conflict for desired postion returns 1 otherwise returns 0*/
+int place(int row, int column)
+{
+    int i;
+    for (i = 1; i <= row - 1; ++i)
+    {
+        // checking column and digonal conflicts
+        if (board[i] == column)
+            return 0;
+        else if (abs(board[i] - column) == abs(i - row))
+            return 0;
+    }
+
+    return 1; // no conflicts
+}
+
+// function to check for proper positioning of queen
+void queen(int row, int n)
+{
+    int column;
+    for (column = 1; column <= n; ++column)
+    {
+        if (place(row, column))
         {
-        for(j=0; j <= n; j++)
-        {
-        if(i == j)
-        {
-        w[i][j] = q[i];
-        c[i][j] = 0;
-        r[i][j] = 0;
-        printf("W[%d][%d]: %d\\tC[%d][%d]: %d\\tR[%d][%d]: %d\\n",i,j,w[i][j],i,j,c[i][j],i,j,r[i][j]);
+            board[row] = column; // no conflicts so place queen
+            if (row == n)        // dead end
+                print(n);        // printing the board configuration
+            else                 // try queen with next position
+                queen(row + 1, n);
         }
+    }
+}`);
         }
 
-        }
-        printf("\\n");
-        for(b=0; b < n; b++)
-        {
-        for(i=0,j=b+1; j < n+1 && i < n+1; j++,i++)
-        {
+        function bst() {
+            navigator.clipboard.writeText(`#include <stdio.h>
+#define MAX 10
 
+void main()
+{
 
-        if(i!=j && i < j)
+    char ele[MAX][MAX];
+    int w[MAX][MAX], c[MAX][MAX], r[MAX][MAX], p[MAX], q[MAX];
+    int temp = 0, root, min, min1, n;
+    int i, j, k, b;
+    printf("Enter the number of elements:");
+    scanf("%d", &n);
+    printf("\\n");
+    for (i = 1; i <= n; i++)
+    {
+        printf("Enter the Element of %d:", i);
+        scanf("%d", &p[i]);
+    }
+
+    printf("\\n");
+    for (i = 0; i <= n; i++)
+    {
+        printf("Enter the Probability of %d:", i);
+        scanf("%d", &q[i]);
+    }
+    printf("W\\t\\tC\\t\\tR\\n");
+    for (i = 0; i <= n; i++)
+    {
+        for (j = 0; j <= n; j++)
         {
-        w[i][j] = p[j] + q[j] + w[i][j-1];
-        min = 30000;
-        for(k = i+1; k <= j; k++)
-        {
-            min1 = c[i][k-1] + c[k][j] + w[i][j];
-            if(min > min1)
+            if (i == j)
             {
-            min = min1;
-            temp = k;
+                w[i][j] = q[i];
+                c[i][j] = 0;
+                r[i][j] = 0;
+                printf("W[%d][%d]: %d\\tC[%d][%d]: %d\\tR[%d][%d]: %d\\n", i, j, w[i][j], i, j, c[i][j], i, j, r[i][j]);
             }
         }
-        c[i][j] = min;
-        r[i][j] = temp;
-        }
-        printf("W[%d][%d]: %d\\tC[%d][%d]: %d\\tR[%d][%d]: %d\\n",i,j,w[i][j],i,j,c[i][j],i,j,r[i][j]);
+    }
+    printf("\\n");
+    for (b = 0; b < n; b++)
+    {
+        for (i = 0, j = b + 1; j < n + 1 && i < n + 1; j++, i++)
+        {
 
+            if (i != j && i < j)
+            {
+                w[i][j] = p[j] + q[j] + w[i][j - 1];
+                min = 30000;
+                for (k = i + 1; k <= j; k++)
+                {
+                    min1 = c[i][k - 1] + c[k][j] + w[i][j];
+                    if (min > min1)
+                    {
+                        min = min1;
+                        temp = k;
+                    }
                 }
+                c[i][j] = min;
+                r[i][j] = temp;
+            }
+            printf("W[%d][%d]: %d\\tC[%d][%d]: %d\\tR[%d][%d]: %d\\n", i, j, w[i][j], i, j, c[i][j], i, j, r[i][j]);
+        }
         printf("\\n");
+    }
+
+    printf("Minimum cost = %d\\n", c[0][n]);
+    root = r[0][n];
+
+    printf("Root = %d \\n", root);
+}`);
         }
 
+        function coloring() {
+            navigator.clipboard.writeText(`#include <stdio.h>
+static int m, n;
+static int c = 0;
+static int count = 0;
+int g[50][50];
+int x[50];
+void nextValue(int k);
+void GraphColoring(int k);
 
-        printf("Minimum cost = %d\\n",c[0][n]);
-        root = r[0][n];
+int main()
+{
+    int i, j;
 
-        printf("Root = %d \\n",root);
-        getch();
-        }`);
-      }
+    // Predefined number of nodes
+    n = 4;
 
-      function coloring() {
-        navigator.clipboard.writeText(`#include<stdio.h>
-        #include<conio.h>
-        static int m, n;
-        static int c=0;
-        static int count=0;
-        int g[50][50];
-        int x[50];
-        void nextValue(int k);
-        void GraphColoring(int k);
-        void main()
+    // Predefined adjacency matrix for a graph with \`n\` nodes
+    int predefined_g[50][50] = {
+        {0, 1, 1, 0}, 
+        {1, 0, 1, 1}, 
+        {1, 1, 0, 1}, 
+        {0, 1, 1, 0}
+    };
+
+    // Copy predefined adjacency matrix to global \`g\`
+    for (i = 1; i <= n; i++)
+    {
+        for (j = 1; j <= n; j++)
         {
-        int i, j;
-        int temp;
-        clrscr();
-        printf("\\nEnter the number of nodes: " );
-        scanf("%d", &n);
-
-
-        /*printf("\\nIf edge exists then enter 1 else enter 0 \\n");
-        for(i=1; i<=n; i++)
-        {
-         x[i]=0;
-         for(j=1; j<=n; j++)
-         {
-         if(i==j)
-          g[i][j]=0;
-         else
-         {
-          printf("%d -> %d: " , i, j);
-          scanf("%d", &temp);
-          g[i][j]=g[j][i]=temp;
+            g[i][j] = predefined_g[i-1][j-1];
         }
-         }
-        }
+    }
 
-        */
-        printf("\\nEnter Adjacency Matrix:\\n");
-        for(i=1;i<=n;i++)
+    printf("\\nPossible Solutions are\\n");
+    for (m = 1; m <= n; m++)
+    {
+        if (c == 1)
         {
-         for(j=1;j<=n;j++)
-         {
-         scanf("%d", &g[i][j]);
-         }
+            break;
         }
-        printf("\\nPossible Solutions are\\n");
-        for(m=1;m<=n;m++)
-        {
-         if(c==1)
-         {
-         break;
-         }
-         GraphColoring(1);
+        GraphColoring(1);
+    }
 
+    printf("\\nThe chromatic number is %d", m - 1);
+    printf("\\nThe total number of solutions is %d\\n", count);
+    return 0;
+}
+
+void GraphColoring(int k)
+{
+    int i;
+    while (1)
+    {
+        nextValue(k);
+        if (x[k] == 0)
+        {
+            return;
         }
 
-        printf("\\nThe chromatic number is %d", m-1);
-        //in for loop, m gets incremented first and then the condition is checked
-        //so it is m minus 1
-        printf("\\nThe total number of solutions is %d", count);
-
-        getch();
-        }
-
-        void GraphColoring(int k)
+        if (k == n)
         {
-        int i;
-        while(1)
-        {
-         nextValue(k);
-         if(x[k]==0)
-         {
-         return;
-         }
-
-        if(k==n)
-        {
-         c=1;
-         for(i=1;i<=n;i++)
-         {
-         printf("%d ", x[i]);
-         }
-         count++;
-         printf("\\n");
+            c = 1;
+            for (i = 1; i <= n; i++)
+            {
+                printf("%d ", x[i]);
+            }
+            count++;
+            printf("\\n");
         }
         else
-         GraphColoring(k+1);
-        }
-        }
+            GraphColoring(k + 1);
+    }
+}
 
-        void nextValue(int k)
+void nextValue(int k)
+{
+    int j;
+    while (1)
+    {
+        x[k] = (x[k] + 1) % (m + 1);
+        if (x[k] == 0)
         {
-        int j;
-        while(1)
+            return;
+        }
+        for (j = 1; j <= n; j++)
         {
-         x[k]=(x[k]+1)%(m+1);
-         if(x[k]==0)
-         {
-         return;
-         }
-         for(j=1;j<=n;j++)
-         {
-         if(g[k][j]==1&&x[k]==x[j])
-         break;
-         }
-
-         if(j==(n+1))
-         {
-         return;
-         }
+            if (g[k][j] == 1 && x[k] == x[j])
+                break;
         }
 
-        }`);
-      }
-
-      function hamilton() {
-        navigator.clipboard.writeText(`#include<stdio.h> 
-        #define V 5 
-        void printSolution(int path[]);
-        bool isSafe(int v, bool graph[V][V], int path[], int pos) {
-        if (graph [ path[pos-1] ][ v ] == 0) return false;
-        for (int i = 0;
-        i < pos;
-        i++) if (path[i] == v) return false;
-        return true;
-        }
-        bool hamCycleUtil(bool graph[V][V], int path[], int pos) {
-        if (pos == V) {
-        if ( graph[ path[pos-1] ][ path[0] ] == 1 ) return true;
-        else return false;
-        }
-        for (int v = 1;
-        v < V;
-        v++) {
-        if (isSafe(v, graph, path, pos)) {
-        path[pos] = v;
-        if (hamCycleUtil (graph, path, pos+1) == true) return true;
-        path[pos] = -1;
-        }
-        }
-        return false;
-        }
-        bool hamCycle(bool graph[V][V]) {
-        int *path = new int[V];
-        for (int i = 0;
-        i < V;
-        i++) path[i] = -1;
-        path[0] = 0;
-        if ( hamCycleUtil(graph, path, 1) == false ) {
-        printf("\\nSolution does not exist");
-        return false;
-        }
-        printSolution(path);
-        return true;
-        }
-        void printSolution(int path[]) {
-        printf ("Solution Exists:" " Following is one Hamiltonian Cycle \\n");
-        for (int i = 0;
-        i < V;
-        i++) printf(" %d ", path[i]);
-        printf(" %d ", path[0]);
-        printf("\\n");
-        }
-        int main() {
-        bool graph1[V][V] = {
+        if (j == (n + 1))
         {
-        0, 1, 0, 1, 0}
-        , {
-        1, 0, 1, 1, 1}
-        , {
-        0, 1, 0, 0, 1}
-        , {
-        1, 1, 0, 0, 1}
-        , {
-        0, 1, 1, 1, 0}
-        , }
-        ;
-        hamCycle(graph1);
-        bool graph2[V][V] = {
-        {
-        0, 1, 0, 1, 0}
-        , {
-        1, 0, 1, 1, 1}
-        , {
-        0, 1, 0, 0, 1}
-        , {
-        1, 1, 0, 0, 0}
-        , {
-        0, 1, 1, 0, 0}
-        , }
-        ;
-        hamCycle(graph2);
-        return 0;
-        }`);
-      }
+            return;
+        }
+    }
+}
+`);
+        }
 
-      function cpy(index) {
-        navigator.clipboard.writeText(`#include<stdio.h>
+        function hamilton() {
+            navigator.clipboard.writeText(`#include <stdio.h>
+#include <stdbool.h>
+#define V 5 // Number of vertices in the graph
+void printSolution(int path[]);
+
+bool isSafe(int v, bool graph[V][V], int path[], int pos) {
+
+ if (graph[path[pos - 1]][v] == 0) return false;
+
+ for (int i = 0;
+ i < pos;
+ i++)
+ if (path[i] == v) return false;
+
+ return true;
+
+}
+
+bool hamCycleUtil(bool graph[V][V], int path[], int pos) {
+
+ if (pos == V) {
+
+ return graph[path[pos - 1]][path[0]] == 1;
+
+ }
+
+ for (int v = 1;
+ v < V;
+ v++) {
+
+ if (isSafe(v, graph, path, pos)) {
+
+ path[pos] = v;
+
+ if (hamCycleUtil(graph, path, pos + 1)) return true;
+
+ path[pos] = -1;
+
+ }
+
+ }
+
+ return false;
+
+}
+
+bool hamCycle(bool graph[V][V]) {
+
+ int path[V];
+
+ for (int i = 0;
+ i < V;
+ i++) path[i] = -1;
+
+ path[0] = 0;
+
+ if (!hamCycleUtil(graph, path, 1)) {
+
+ printf("Solution does not exist\\n");
+
+ return false;
+
+ }
+
+ printSolution(path);
+
+ return true;
+
+}
+
+void printSolution(int path[]) {
+
+ printf("Hamiltonian Cycle exists:\\n");
+
+ for (int i = 0;
+ i < V;
+ i++)
+ printf("%d ", path[i]);
+
+ printf("%d\\n", path[0]);
+
+}
+
+int main() {
+
+ bool graph[V][V] = {
+
+ {
+0, 1, 0, 1, 0}
+,
+ {
+1, 0, 1, 1, 1}
+,
+ {
+0, 1, 0, 0, 1}
+,
+ {
+1, 1, 0, 0, 1}
+,
+ {
+0, 1, 1, 1, 0}
+,
+ }
+;
+
+ hamCycle(graph);
+
+ return 0;
+
+}
+
+`);
+        }
+
+        function ts() {
+            navigator.clipboard.writeText(`#include<stdio.h>
         
         int ary[10][10],completed[10],n,cost=0;
         
@@ -1155,7 +1173,8 @@
         
             return 0;
         }`);
-      }
+        }
     </script>
-  </body>
+</body>
+
 </html>
